@@ -1,0 +1,12 @@
+name: test
+title: test
+username:
+account: eric-yue
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 892291
+bundleId: 2042881
+url: https://eric-yue.shinyapps.io/test/
+when: 1556352199.6151
+asMultiple: FALSE
+asStatic: FALSE

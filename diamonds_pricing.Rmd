@@ -1,0 +1,59 @@
+---
+title: "Diamond pricing"
+author: "Eric Yue"
+date: "2019/4/27"
+output: slidy_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+library(ggplot2)
+library(dplyr)
+library(ggthemes)
+```
+
+## Overview
+
+This is a Shiny app to explore the diamonds dataset in **ggplot2**, and to predict the price of a diamond. 
+It's an updated version of a class project for [Developing Data Products](https://www.coursera.org/learn/data-products) as part of the **Data Science Specialization** on Coursera, April, 2019.
+
+With the shiny app, reader can choose the cut and clarity variables in the boxcheck input. The webpage is [Test page of diamonds pricing](https://eric-yue.shinyapps.io/test/).
+
+
+## Diamonds price with cut
+
+```{r diamonds_cut, echo=FALSE,message=FALSE,warning=FALSE}
+data(diamonds)
+g1 <- ggplot(diamonds, aes(carat, price, color = cut)) +
+  geom_point() +
+scale_colour_solarized("red")
+g1
+
+```
+
+## Diamonds price with clarity
+
+```{r diamonds_clarity, echo=FALSE,message=FALSE,warning=FALSE}
+
+g <- ggplot(diamonds, aes(carat, price, color = clarity)) +
+  geom_point() +
+scale_colour_solarized("yellow")
+g
+
+```
+
+## Diamonds price with Linear regression
+
+I have filtered the data of diamonds with condition:  cut=="Good"&clarity=="SI1". 
+```{r diamonds_lm, echo=FALSE,message=FALSE,warning=FALSE}
+
+diamonds<-filter(diamonds,cut=="Good"&clarity=="SI1")
+
+g2 <- ggplot(diamonds)+
+  geom_point(aes(carat, price, color = clarity))+
+  geom_smooth(aes(carat,price),method = "lm")+  
+  scale_colour_solarized("yellow")
+g2
+
+```
