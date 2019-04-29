@@ -40,7 +40,8 @@ shinyUI(fluidPage(
         mainPanel(
             plotOutput(outputId = "scatterPlot1"),
             h3("predicted price is: "),
-            textOutput("predict_p")
+            textOutput("predict_p"),
+            h5("Note: Using this shiny app, after choosing the cut method, clarity property, carat and submitting, it will predict the according price.")
          )
     )
 ))
