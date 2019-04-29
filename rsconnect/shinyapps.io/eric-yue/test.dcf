@@ -5,8 +5,9 @@ account: eric-yue
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 892291
-bundleId: 2042881
+bundleId: 2045642
 url: https://eric-yue.shinyapps.io/test/
-when: 1556352199.6151
+when: 1556502174.08967
 asMultiple: FALSE
 asStatic: FALSE
+ignoredFiles: diamonds_pricing.html|diamonds_pricing.Rmd|README.md|diamonds_pricing_files/figure-slidy/diamonds_clarity-1.png|diamonds_pricing_files/figure-slidy/diamonds_cut-1.png|diamonds_pricing_files/figure-slidy/diamonds_lm-1.png

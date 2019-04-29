@@ -33,11 +33,14 @@ shinyUI(fluidPage(
                                "VS2", "VS1", "VVS2",
                                "VVS1", "IF"),
                 selected = "VS1"
-            )
+            ),
+            submitButton("submit")
         ),
         # Show a plot of the generated distribution
         mainPanel(
-            plotOutput(outputId = "scatterPlot1")
+            plotOutput(outputId = "scatterPlot1"),
+            h3("predicted price is: "),
+            textOutput("predict_p")
          )
     )
 ))
