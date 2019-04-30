@@ -2,7 +2,9 @@
 title: "Diamond pricing"
 author: "Eric Yue"
 date: "2019/4/27"
-output: slidy_presentation
+output:
+  slidy_presentation: default
+  ioslides_presentation: default
 ---
 
 ```{r setup, include=FALSE}
@@ -18,14 +20,20 @@ library(ggthemes)
 This is a Shiny app to explore the diamonds dataset in **ggplot2**, and to predict the price of a diamond. 
 It's an updated version of a class project for [Developing Data Products](https://www.coursera.org/learn/data-products) as part of the **Data Science Specialization** on Coursera, April, 2019.
 
-With the shiny app, reader can choose the cut and clarity variables in the boxcheck input. The webpage is [Test page of diamonds pricing](https://eric-yue.shinyapps.io/test/).
+With the shiny app, reader can choose the cut and clarity variables in the boxcheck input. The webpage of the app is https://eric-yue.shinyapps.io/test/.
 
 All of the code is listed at https://github.com/xmyyj001/diamonds_pricing.
 
+## About the data 
+
+```{r diamonds_data}
+data(diamonds)
+head(diamonds)
+
+```
 ## Diamonds price with cut
 First we can see that diamonds with different cut method, will be at very much variant pricing.
 ```{r diamonds_cut, echo=FALSE,message=FALSE,warning=FALSE}
-data(diamonds)
 g1 <- ggplot(diamonds, aes(carat, price, color = cut)) +
   geom_point() +
 scale_colour_solarized("red")
@@ -48,7 +56,12 @@ g
 
 On my shiny app, there will give the choice of cut method and clarity property, and get according price.  
 
-Below is just an example. I have filtered the data of diamonds with condition:  cut=="Good"&clarity=="SI1". 
+Below is just an example. I have filtered the data of diamonds with condition:  cut=="Good"&clarity=="SI1", showing a linear regression line.
+
+Applying the linear regression model, when input the cut method, clarity property and carats of the diamond, the app will predict the price accordingly.
+
+## The plot
+
 ```{r diamonds_lm, echo=FALSE,message=FALSE,warning=FALSE}
 
 diamonds<-filter(diamonds,cut=="Good"&clarity=="SI1")
